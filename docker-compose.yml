@@ -15,4 +15,4 @@ services:
       - DATABASE_NAME=DatabaseName 
       - INDEX_NAME=DatabaseName 
       - FILES_ROOT_PATH=/usr/src/app/uwazi/
-    entrypoint: [ "node", "server.js" ]
+    entrypoint: [ "node", "latest/server.js" ]
