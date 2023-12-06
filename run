@@ -3,6 +3,15 @@
 set -eo pipefail
 
 function start {
+  mkdir -p uwazi/log uwazi/uploaded_documents uwazi/custom_uploads uwazi/temporal_files
+  if [ ! -f uwazi/uwazi.tgz ]
+  then
+    wget -O uwazi/uwazi.tgz https://github.com/huridocs/uwazi/releases/latest/download/uwazi.tgz
+    cd uwazi
+    tar xvf uwazi.tgz
+    mv prod latest
+    cd ..
+  fi
   docker-compose up --build -d "${@}"
 }
 
